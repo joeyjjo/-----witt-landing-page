@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 
 const Pricing = () => {
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl lg:text-4xl font-bold mb-4"
+                        className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"
                     >
                         Pricing
                     </motion.h2>
@@ -30,16 +30,16 @@ const Pricing = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-accent"
+                        className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-accent mx-4"
                     >
-                        <div className="bg-primary p-6 text-center">
-                            <h3 className="text-2xl font-bold text-white mb-2">Sales Booster Package</h3>
+                        <div className="bg-primary p-5 sm:p-6 text-center">
+                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Sales Booster Package</h3>
                             <p className="text-gray-400">All-in-One Solution</p>
                         </div>
-                        <div className="p-8">
+                        <div className="p-6 sm:p-8">
                             <div className="text-center mb-8">
                                 <p className="text-gray-500 line-through text-lg">월 150만원</p>
-                                <p className="text-4xl font-bold text-accent">12월 특가 문의</p>
+                                <p className="text-3xl sm:text-4xl font-bold text-accent">12월 특가 문의</p>
                             </div>
                             <ul className="space-y-4 mb-8">
                                 <li className="flex items-center text-gray-700">

@@ -46,7 +46,7 @@ const cafes = [
 ];
 
 const CafeCard = ({ cafe }) => (
-    <div className="min-w-[300px] md:min-w-[400px] bg-white rounded-xl overflow-hidden shadow-lg flex-shrink-0">
+    <div className="min-w-[280px] sm:min-w-[320px] md:min-w-[400px] bg-white rounded-xl overflow-hidden shadow-lg flex-shrink-0">
         <div className="h-48 overflow-hidden">
             <img
                 src={cafe.image}
@@ -78,17 +78,17 @@ const CafeShowcase = () => {
     const duplicatedCafes = [...cafes, ...cafes, ...cafes];
 
     return (
-        <section className="py-20 bg-primary overflow-hidden">
-            <div className="container mx-auto px-6 mb-12 text-center">
+        <section className="py-12 sm:py-16 lg:py-20 bg-primary overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12 text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl lg:text-4xl font-bold text-white mb-4"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4"
                 >
                     Curated Cafe Partners
                 </motion.h2>
-                <p className="text-gray-400">
+                <p className="text-sm sm:text-base text-gray-400">
                     위트가 엄선한 서울/경기 핫플레이스 카페들을 만나보세요.
                 </p>
             </div>

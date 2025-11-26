@@ -32,14 +32,14 @@ const features = [
 
 const Features = () => {
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl lg:text-4xl font-bold mb-4"
+                        className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"
                     >
                         Why Sell Here?
                     </motion.h2>
@@ -53,7 +53,7 @@ const Features = () => {
                         위트와 함께라면 판매가 쉬워집니다.
                     </motion.p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -61,7 +61,7 @@ const Features = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-xl transition duration-300 border border-gray-100"
+                            className="bg-gray-50 rounded-xl p-6 sm:p-8 text-center hover:shadow-xl transition duration-300 border border-gray-100"
                         >
                             <div className="flex justify-center mb-6">
                                 {feature.icon}

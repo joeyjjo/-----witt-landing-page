@@ -28,14 +28,14 @@ const FAQ = () => {
     };
 
     return (
-        <section className="py-20 bg-white">
-            <div className="container mx-auto px-6 max-w-3xl">
-                <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl lg:text-4xl font-bold mb-4"
+                        className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"
                     >
                         FAQ
                     </motion.h2>

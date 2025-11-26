@@ -3,14 +3,14 @@ import heroImage from '../assets/hero.png';
 
 const Hero = () => {
     return (
-        <section className="relative bg-primary text-white py-20 lg:py-32 overflow-hidden">
-            <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center">
-                <div className="w-full lg:w-1/2 lg:pr-12">
+        <section className="relative bg-primary text-white py-12 sm:py-16 lg:py-32 overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 flex flex-col-reverse lg:flex-row items-center">
+                <div className="w-full lg:w-1/2 lg:pr-12 text-center lg:text-left">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl lg:text-6xl font-bold leading-tight mb-6"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6"
                     >
                         12월 한 달, <br className="hidden lg:block" />
                         서울 핫플레이스 카페가 <br />
@@ -20,10 +20,11 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-lg lg:text-xl text-gray-300 mb-10"
+                        className="text-base sm:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-10"
                     >
-                        인테리어비 NO, 상주인력 NO. <br className="lg:hidden" />
-                        제품만 보내주세요. 판매는 위트가 합니다.
+                        인테리어비 NO, 상주인력 NO. <br className="sm:hidden" />
+                        제품만 보내주세요. <br className="sm:hidden" />
+                        판매는 위트가 합니다.
                     </motion.p>
                     <motion.button
                         initial={{ opacity: 0, y: 20 }}
@@ -31,12 +32,12 @@ const Hero = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="bg-accent text-primary font-bold py-4 px-10 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 text-lg"
+                        className="bg-accent text-primary font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 text-base sm:text-lg w-full sm:w-auto"
                     >
                         12월 판매 입점 상담하기
                     </motion.button>
                 </div>
-                <div className="w-full lg:w-1/2 mb-12 lg:mb-0 relative">
+                <div className="w-full lg:w-1/2 mb-8 sm:mb-12 lg:mb-0 relative">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}

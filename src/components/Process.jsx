@@ -25,14 +25,14 @@ const steps = [
 
 const Process = () => {
     return (
-        <section className="py-20 bg-gray-50">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl lg:text-4xl font-bold mb-4"
+                        className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4"
                     >
                         How It Works
                     </motion.h2>
@@ -41,7 +41,7 @@ const Process = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
@@ -49,7 +49,7 @@ const Process = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="relative p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300"
+                            className="relative p-5 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300"
                         >
                             <div className="text-5xl font-bold text-gray-100 absolute top-4 right-4">
                                 {step.number}
