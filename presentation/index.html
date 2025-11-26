@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WITT 서비스 소개</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/black.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #FFB800;
+            --secondary-accent: #FF6B00;
+            --bg-gradient-start: #0f0f0f;
+            --bg-gradient-end: #1a1a1a;
+        }
+
+        * {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        }
+
+        .reveal {
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal h1 {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reveal h2 {
+            color: var(--accent-color);
+        }
+
+        .reveal section {
+            padding: 60px;
+        }
+
+        /* Gradient Cards */
+        .card {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.1) 0%, rgba(255, 107, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 184, 0, 0.2);
+        }
+
+        /* Floating Elements */
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Number Badges */
+        .number-badge {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        /* Modern Lists */
+        .reveal ul {
+            list-style: none;
+        }
+
+        .reveal ul li {
+            position: relative;
+            padding-left: 40px;
+            margin: 15px 0;
+        }
+
+        .reveal ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            border-radius: 50%;
+        }
+
+        /* Grid Layout */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Icon Styles */
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(255, 184, 0, 0.5));
+        }
+
+        /* Stats Display */
+        .stat {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Table Styling */
+        .reveal table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .reveal table th {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: #000;
+            font-weight: 700;
+            padding: 20px;
+        }
+
+        .reveal table td {
+            background: rgba(255, 184, 0, 0.05);
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 184, 0, 0.1);
+        }
+
+        /* Process Steps */
+        .process-step {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.1) 0%, rgba(255, 107, 0, 0.1) 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: #000;
+            font-size: 1.5em;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.5);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: #000;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        /* Background Patterns */
+        .pattern-bg {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 184, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+        }
+
+        /* Quote Style */
+        .quote {
+            font-size: 2em;
+            font-weight: 600;
+            line-height: 1.4;
+            padding: 40px;
+            border-left: 5px solid var(--accent-color);
+            background: rgba(255, 184, 0, 0.05);
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        /* Success Metrics */
+        .metric-box {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15) 0%, rgba(255, 107, 0, 0.15) 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: 표지 -->
+            <section class="pattern-bg">
+                <div class="floating">
+                    <h1 style="font-size: 5em; margin-bottom: 30px;">WITT</h1>
+                    <h2 style="font-size: 2em; font-weight: 600;">카페에서 하는 브랜드 판매</h2>
+                </div>
+                <div class="quote" style="margin-top: 60px;">
+                    12월 한 달, 서울 핫플레이스 카페가<br>
+                    우리 브랜드의 <span style="color: var(--accent-color);">'무인 판매점'</span>이 됩니다.
+                </div>
+            </section>
+
+            <!-- Slide 2: 문제 인식 -->
+            <section>
+                <h2 style="margin-bottom: 60px;">팝업스토어, 이런 고민 있으셨죠?</h2>
+                <div class="feature-grid">
+                    <div class="card">
+                        <div class="icon">💰</div>
+                        <h3 style="color: #fff;">높은 초기 비용</h3>
+                        <p>인테리어, 임대료, 인건비</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📍</div>
+                        <h3 style="color: #fff;">장소 확보의 어려움</h3>
+                        <p>좋은 위치는 이미 선점됨</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">👥</div>
+                        <h3 style="color: #fff;">상주 인력 필요</h3>
+                        <p>운영 관리의 부담</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📊</div>
+                        <h3 style="color: #fff;">불확실한 성과</h3>
+                        <p>투자 대비 매출 예측 어려움</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: WITT 솔루션 -->
+            <section class="pattern-bg">
+                <h2 style="margin-bottom: 50px;">위트가 제안하는 새로운 방식</h2>
+                <div class="quote">
+                    인테리어비 NO, 상주인력 NO.<br>
+                    제품만 보내주세요. <span style="color: var(--accent-color);">판매는 위트가 합니다.</span>
+                </div>
+                <div class="feature-grid" style="margin-top: 60px;">
+                    <div class="badge">저비용 고효율</div>
+                    <div class="badge">검증된 카페 네트워크</div>
+                    <div class="badge">완전 자동화 시스템</div>
+                    <div class="badge">수수료 0%</div>
+                </div>
+            </section>
+
+            <!-- Slide 4: 파트너 카페 -->
+            <section>
+                <h2 style="margin-bottom: 20px;">Curated Cafe Partners</h2>
+                <p style="font-size: 1.2em; color: var(--accent-color); margin-bottom: 40px;">
+                    위트가 엄선한 서울/경기 핫플레이스 카페들
+                </p>
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>카페명</th>
+                            <th>위치</th>
+                            <th>월 평균 방문객</th>
+                            <th>주요 타겟</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Millium Bakery</strong></td>
+                            <td>서울 노원구</td>
+                            <td><span class="stat" style="font-size: 1.5em;">18,000명</span></td>
+                            <td>40대 여성</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nudge</strong></td>
+                            <td>경기도 수원시</td>
+                            <td><span class="stat" style="font-size: 1.5em;">3,200명</span></td>
+                            <td>20대 여성</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estia</strong></td>
+                            <td>경기 용인시</td>
+                            <td><span class="stat" style="font-size: 1.5em;">3,500명</span></td>
+                            <td>40대 남성</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intense 491</strong></td>
+                            <td>인천 중구</td>
+                            <td><span class="stat" style="font-size: 1.5em;">5,000명</span></td>
+                            <td>30대 여성</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 5: 핵심 기능 1 -->
+            <section class="pattern-bg">
+                <div class="icon floating">💰</div>
+                <h2 style="font-size: 3em;">판매 수수료 0%</h2>
+                <div class="metric-box" style="margin: 60px auto; max-width: 700px;">
+                    <p style="font-size: 1.5em; margin-bottom: 20px;">매출의</p>
+                    <div class="metric-number">100%</div>
+                    <p style="font-size: 1.5em; margin-top: 20px;">를 브랜드가 가져가세요</p>
+                </div>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>위트는 브랜드의 성장을 지원합니다</li>
+                    <li>12월 한정 특별 혜택</li>
+                    <li>PG 수수료를 제외한 매출 전액 정산</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: 핵심 기능 2 -->
+            <section>
+                <div class="icon floating">📱</div>
+                <h2 style="font-size: 2.5em; margin-bottom: 20px;">QR코드로 3초 만에 결제</h2>
+                <p style="font-size: 1.5em; color: var(--accent-color); margin-bottom: 60px;">현장에서 바로 픽업.</p>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                    <div class="card">
+                        <div class="number-badge">1</div>
+                        <p style="font-weight: 600;">카페에서<br>제품 발견</p>
+                    </div>
+                    <div class="card">
+                        <div class="number-badge">2</div>
+                        <p style="font-weight: 600;">QR코드<br>스캔</p>
+                    </div>
+                    <div class="card">
+                        <div class="number-badge">3</div>
+                        <p style="font-weight: 600;">모바일<br>간편 결제</p>
+                    </div>
+                    <div class="card">
+                        <div class="number-badge">4</div>
+                        <p style="font-weight: 600;">현장 픽업<br>완료</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: 핵심 기능 3 -->
+            <section class="pattern-bg">
+                <div class="icon floating">📦</div>
+                <h2 style="font-size: 2.5em; margin-bottom: 20px;">실시간 재고 관리</h2>
+                <p style="font-size: 1.3em; color: var(--accent-color); margin-bottom: 50px;">자동 보충 시스템</p>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <ul style="text-align: left; font-size: 1.2em;">
+                        <li>카페 매니저가 매일 재고 확인</li>
+                        <li>위트 시스템 실시간 업데이트</li>
+                        <li>재고 부족 시 자동 알림</li>
+                        <li>택배 발송 → 카페 보충 진열</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 8: 프로세스 -->
+            <section>
+                <h2 style="margin-bottom: 30px;">How It Works</h2>
+                <p style="font-size: 1.3em; color: var(--accent-color); margin-bottom: 50px;">이렇게 간단합니다</p>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="process-step" data-step="01">
+                        <h3 style="color: var(--accent-color); margin: 0 0 10px 0;">Cafe Matching</h3>
+                        <p style="margin: 0;">브랜드의 타겟 고객과 분위기에 맞는 최적의 카페를 매칭</p>
+                    </div>
+                    <div class="process-step" data-step="02">
+                        <h3 style="color: var(--accent-color); margin: 0 0 10px 0;">Display Setup</h3>
+                        <p style="margin: 0;">VMD 전문가가 카페 내 최적의 공간에 디스플레이 연출</p>
+                    </div>
+                    <div class="process-step" data-step="03">
+                        <h3 style="color: var(--accent-color); margin: 0 0 10px 0;">QR Sales</h3>
+                        <p style="margin: 0;">QR코드로 간편 결제, 현장에서 바로 픽업</p>
+                    </div>
+                    <div class="process-step" data-step="04">
+                        <h3 style="color: var(--accent-color); margin: 0 0 10px 0;">Settlement</h3>
+                        <p style="margin: 0;">판매 수수료 0%. 매월 정산 리포트와 함께 전액 입금</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: 성공 사례 -->
+            <section class="pattern-bg">
+                <h2 style="margin-bottom: 60px;">Success Stories</h2>
+                <div class="feature-grid">
+                    <div class="metric-box">
+                        <h3 style="font-size: 1.8em; margin-bottom: 20px;">Cafe Little Paulo</h3>
+                        <div class="badge">Sold Out</div>
+                        <div class="metric-number" style="margin: 30px 0;">50</div>
+                        <p style="font-size: 1.2em;">주말 이틀 만에<br>세트 완판!</p>
+                    </div>
+                    <div class="metric-box">
+                        <h3 style="font-size: 1.8em; margin-bottom: 20px;">Cafe Oreum</h3>
+                        <div class="badge">Hot Place</div>
+                        <div class="metric-number" style="margin: 30px 0;">100만원</div>
+                        <p style="font-size: 1.2em;">오픈 3시간 만에<br>매출 달성</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: 가격 -->
+            <section>
+                <h2 style="font-size: 3em; margin-bottom: 40px;">Sales Booster Package</h2>
+                <div style="font-size: 2.5em; margin: 40px 0;">
+                    <span style="text-decoration: line-through; opacity: 0.5;">월 150만원</span>
+                    <span style="margin: 0 20px;">→</span>
+                    <span class="stat" style="font-size: 1.3em;">12월 특가 문의</span>
+                </div>
+                <div class="card" style="max-width: 700px; margin: 60px auto; padding: 40px;">
+                    <h3 style="color: var(--accent-color); margin-bottom: 30px; font-size: 1.5em;">패키지 포함 내용</h3>
+                    <ul style="text-align: left; font-size: 1.1em;">
+                        <li>Cafe Matching (최적의 카페 매칭)</li>
+                        <li>Display Setup (VMD 연출)</li>
+                        <li>QR Sales System (간편 결제)</li>
+                        <li>Theft Prevention Cam (도난 방지)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 11: FAQ -->
+            <section class="pattern-bg">
+                <h2 style="margin-bottom: 50px;">FAQ</h2>
+                <div style="text-align: left; max-width: 900px; margin: 0 auto;">
+                    <div class="card" style="margin-bottom: 30px;">
+                        <h3 style="color: var(--accent-color); margin-bottom: 15px;">Q1. 정말 판매 수수료가 0%인가요?</h3>
+                        <p>네, 맞습니다. 위트는 브랜드의 성장을 지원하기 위해 12월 한정으로 판매 수수료 0% 혜택을 제공합니다.</p>
+                    </div>
+                    <div class="card" style="margin-bottom: 30px;">
+                        <h3 style="color: var(--accent-color); margin-bottom: 15px;">Q2. 도난이나 파손 걱정은 없나요?</h3>
+                        <p>모든 제휴 카페에는 위트가 제공하는 도난 방지용 스마트캠이 설치되어 있습니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: var(--accent-color); margin-bottom: 15px;">Q3. 최소 계약 기간은?</h3>
+                        <p>기본 계약 기간은 1개월입니다. 12월 단기 팝업으로 진행 후 연장 여부를 결정하실 수 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 12: CTA -->
+            <section class="pattern-bg">
+                <h1 style="font-size: 4em; margin-bottom: 40px;">12월 판매 입점<br>상담하기</h1>
+                <p style="font-size: 1.8em; margin: 40px 0; color: var(--accent-color);">
+                    지금 바로 시작하세요.<br>
+                    복잡한 입점 절차 없이, 쉽고 빠르게.
+                </p>
+                <div class="floating" style="margin: 80px 0;">
+                    <a href="#" class="cta-button">무료 상담 신청</a>
+                </div>
+                <div style="margin-top: 60px; font-size: 1.2em;">
+                    <p>📧 contact@witt.kr</p>
+                    <p>📞 02-1234-5678</p>
+                </div>
+            </section>
+
+            <!-- Slide 13: 감사 -->
+            <section>
+                <div class="floating">
+                    <h1 style="font-size: 5em; margin-bottom: 60px;">감사합니다.</h1>
+                </div>
+                <div style="font-size: 1em; opacity: 0.7; line-height: 1.8;">
+                    <p>상호: 넛지(Nudge) | 대표자: 민정근</p>
+                    <p>사업자번호: 288-13-02613</p>
+                    <p>주소: 경기도 수원시 영통구 월드컵로 199, 4층 416호</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            slideNumber: true
+        });
+    </script>
+</body>
+
+</html>
